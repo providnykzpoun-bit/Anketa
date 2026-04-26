@@ -33,24 +33,25 @@
     <div class="statement-box">
         Прошу прийняти мене, 
         <input type="text" id="name" class="inline-input" placeholder="Прізвище та Ім'я" required> 
-        до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та беззастережно виконувати накази Проводу.
+        до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації.
     </div>
     
     <form id="anketa">
-        <div class="section-title">🇺🇦 I. Персональні дані</div>
-        <label>Бажане псевдо:</label> <input type="text" id="psevdo" required>
-        <label>Дата народження:</label> <input type="date" id="birth" required>
-        <label>Місце проживання:</label> <input type="text" id="address">
-        <label>Сімейний стан:</label> <input type="text" id="family">
+        <div class="section-title">🇺🇦 I. ПЕРСОНАЛЬНІ ДАНІ</div>
+        <label>🚩 Псевдо:</label> <input type="text" id="psevdo" required>
+        <label>📅 Дата народження:</label> <input type="date" id="birth" required>
+        <label>🏠 Адреса проживання:</label> <input type="text" id="address" required>
+        <label>💍 Сімейний стан:</label> <input type="text" id="family">
+        <label>🎗 Партійність:</label> <input type="text" id="party" placeholder="Безпартійний">
 
-        <div class="section-title">🇺🇦 II. Досвід та навички</div>
-        <label>Освіта:</label> <input type="text" id="edu">
-        <label>Нагороди:</label> <input type="text" id="awards">
-        <label>Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
+        <div class="section-title">🇺🇦 II. ДОСВІД ТА ОСВІТА</div>
+        <label>🎓 Освіта:</label> <input type="text" id="edu">
+        <label>🎖 Нагороди:</label> <input type="text" id="awards">
+        <label>🛠 Спеціальні навички:</label> <textarea id="skills" rows="2" placeholder="Наприклад: розвідник, медик..."></textarea>
 
-        <div class="section-title">🇺🇦 III. Контакти</div>
-        <label>Номер телефону:</label> <input type="tel" id="phone" required placeholder="+380...">
-        <label>Рекомендації:</label> <input type="text" id="refs">
+        <div class="section-title">🇺🇦 III. КОНТАКТИ ТА ПОРУЧИТЕЛІ</div>
+        <label>📞 Номер телефону:</label> <input type="tel" id="phone" required placeholder="380...">
+        <label>🤝 Рекомендації (хто може підтвердити):</label> <input type="text" id="refs">
 
         <button type="submit" class="submit-btn">🇺🇦 ВІДПРАВИТИ ЗАЯВУ</button>
     </form>
@@ -70,6 +71,7 @@
             b: document.getElementById('birth').value,
             a: document.getElementById('address').value,
             f: document.getElementById('family').value,
+            pr: document.getElementById('party').value || "Безпартійний",
             e: document.getElementById('edu').value,
             aw: document.getElementById('awards').value,
             s: document.getElementById('skills').value,
@@ -83,11 +85,13 @@
             `📅 Дата нар: ${d.b}\n` +
             `🏠 Адреса: ${d.a}\n` +
             `💍 Стан: ${d.f}\n` +
+            `🎗 Партійність: ${d.pr}\n` +
             `🎓 Освіта: ${d.e}\n` +
             `🎖 Нагороди: ${d.aw}\n` +
             `🛠 Навички: ${d.s}\n` +
             `📞 Тел: ${d.ph}\n` +
-            `🤝 Рекомендації: ${d.r}`;
+            `🤝 Рекомендації: ${d.r}\n\n` +
+            `📅 Дата заповнення: ${new Date().toLocaleDateString()}`;
 
         window.location.href = `https://t.me/old_solo_way?text=${encodeURIComponent(text)}`;
     };
