@@ -11,6 +11,26 @@
         .emblem-header img { width: 120px; height: 120px; border-radius: 50%; object-fit: contain; background: #fff; border: 2px solid #1a3a5f; padding: 5px; }
         .header-text { text-align: center; font-weight: bold; font-size: 24px; color: #1a3a5f; margin-bottom: 10px; text-transform: uppercase; }
         
+        /* Стиль для плеєра */
+        .audio-control {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: #1a3a5f;
+            color: white;
+            padding: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .statement-box { background: #fff; border: 1px solid #adc5e0; padding: 20px; margin-bottom: 25px; font-style: italic; line-height: 1.8; color: #1a3a5f; font-size: 17px; border-left: 5px solid #1a3a5f; }
         .inline-input { border: none; border-bottom: 2px solid #d32f2f; outline: none; font-family: inherit; font-size: 18px; font-weight: bold; color: #d32f2f; width: 220px; background: transparent; text-align: center; }
         
@@ -23,6 +43,14 @@
     </style>
 </head>
 <body>
+
+<div class="audio-control" id="musicBtn" onclick="toggleMusic()">
+    <span>🎵</span> <span id="btnText">УВІМКНУТИ ГІМН</span>
+</div>
+
+<audio id="hymn" loop>
+    <source src="g-mn-oun-upa-zrodilis-mi-veliko-godini.mp3" type="audio/mpeg">
+</audio>
 
 <div class="form-container">
     <div class="emblem-header">
@@ -52,8 +80,8 @@
         <label>📞 Номер телефону:</label> <input type="tel" id="phone" value="+" required oninput="this.value = '+' + this.value.replace(/[^0-9]/g, '')">
 
         <div class="section-title">🇺🇦 III. РЕКОМЕНДАЦІЇ ДО ЛАВ ОУН</div>
-        <label>🤝 Рекомендує (1):</label> <input type="text" id="ref1" placeholder="Прізвище, Ім'я або Псевдо">
-        <label>🤝 Рекомендує (2):</label> <input type="text" id="ref2" placeholder="Прізвище, Ім'я або Псевдо">
+        <label>🤝 Рекомендує (1):</label> <input type="text" id="ref1">
+        <label>🤝 Рекомендує (2):</label> <input type="text" id="ref2">
 
         <button type="submit" class="submit-btn">🇺🇦 ВІДПРАВИТИ ЗАЯВУ</button>
     </form>
@@ -64,6 +92,21 @@
 </div>
 
 <script>
+    // Логіка музики
+    const audio = document.getElementById('hymn');
+    const btnText = document.getElementById('btnText');
+
+    function toggleMusic() {
+        if (audio.paused) {
+            audio.play();
+            btnText.innerText = "ВИМКНУТИ ГІМН";
+        } else {
+            audio.pause();
+            btnText.innerText = "УВІМКНУТИ ГІМН";
+        }
+    }
+
+    // Логіка відправки
     document.getElementById('anketa').onsubmit = function(e) {
         e.preventDefault();
         
