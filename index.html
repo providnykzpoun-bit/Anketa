@@ -3,84 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Анкета Кандидата в ОУН</title>
+    <title>Заява до лав ОУН</title>
     <style>
         body { background-color: #e3effd; font-family: "Courier New", Courier, monospace; padding: 15px; margin: 0; }
         .form-container { background: #f0f7ff; padding: 25px; border: 1px solid #adc5e0; border-radius: 8px; max-width: 550px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        .emblem-header { text-align: center; margin-bottom: 15px; }
+        .emblem-header img { 
+            width: 120px; height: 120px; border-radius: 50%; 
+            object-fit: contain; background: #fff; border: 2px solid #1a3a5f; padding: 5px;
+        }
+
         .header-text { text-align: center; font-weight: bold; font-size: 22px; color: #1a3a5f; margin-bottom: 20px; text-transform: uppercase; }
+        
+        /* Стиль для тексту самої заяви */
+        .statement-box { background: #fff; border: 1px solid #adc5e0; padding: 15px; margin-bottom: 20px; font-style: italic; line-height: 1.5; color: #1a3a5f; }
+        
         .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 25px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
         label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; font-size: 15px; }
         input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
-        .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 30px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
+        
+        .photo-notice { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; margin-top: 30px; border-radius: 5px; color: #856404; font-weight: bold; text-align: center; font-size: 14px; }
+        .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
         .submit-btn:hover { background: #000; }
-        
-        /* Стилі для вікна фото */
-        .photo-upload-box { 
-            border: 2px dashed #adc5e0; 
-            border-radius: 4px; 
-            width: 150px; 
-            height: 180px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            cursor: pointer; 
-            margin-top: 10px; 
-            overflow: hidden;
-            background: #fff;
-            position: relative;
-        }
-        .photo-upload-box:hover { border-color: #1a3a5f; background-color: #f0faff; }
-        .photo-preview { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; display: none; }
-        .photo-icon { width: 60px; height: 60px; opacity: 0.5; } /* Іконка з імітацією герба */
-        .photo-text { text-align: center; font-size: 12px; color: #7f8c8d; margin-top: 10px; padding: 0 10px; line-height: 1.3; }
-        
-        /* Стилізація іконки герба-тризуба-меча в колі */
-        .oun-emblem {
-            width: 60px;
-            height: 60px;
-            background-color: #f1c40f; /* Золотий колір фону */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #1a3a5f; /* Синій обідок */
-            position: relative;
-            margin-bottom: 5px;
-        }
-        
-        /* Створення імітації тризуба-меча через CSS */
-        .tryzub-sword {
-            width: 12px;
-            height: 40px;
-            background-color: #1a3a5f; /* Синій колір */
-            position: absolute;
-            top: 10px;
-            left: calc(50% - 6px);
-            border-radius: 2px;
-        }
-        .tryzub-left, .tryzub-right {
-            width: 8px;
-            height: 25px;
-            background-color: #1a3a5f;
-            position: absolute;
-            bottom: 5px;
-            border-radius: 2px;
-        }
-        .tryzub-left { left: calc(50% - 20px); transform: rotate(-30deg); }
-        .tryzub-right { right: calc(50% - 20px); transform: rotate(30deg); }
-        
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <div class="header-text">Анкета кандидата до лав ОУН</div>
+    <div class="emblem-header">
+        <img src="https://raw.githubusercontent.com/providnykzpoun-bit/Anketa/main/IMG_20260426_155837_907.jpg" alt="Герб ОУН">
+    </div>
+    
+    <div class="header-text">ЗАЯВА</div>
+
+    <div class="statement-box">
+        Прошу прийняти мене, <span id="display-name">____________________</span>, до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та виконувати накази Проводу.
+    </div>
     
     <form id="fullAnketa">
-        <div class="section-title">I. Персональні відомості</div>
-        <label>Бажане псевдо ОУН:</label> <input type="text" id="psevdo" required>
-        <label>ПІБ (справжнє):</label> <input type="text" id="name" required>
+        <div class="section-title">I. Персональні відомості (Анкета)</div>
+        <label>ПІБ (повністю):</label> 
+        <input type="text" id="name" placeholder="Прізвище, Ім'я, По батькові" required oninput="document.getElementById('display-name').innerText = this.value || '____________________'">
+        
+        <label>Бажане псевдо:</label> <input type="text" id="psevdo" required>
         <label>Дата народження:</label> <input type="date" id="birthdate">
         <label>Місце проживання:</label> <input type="text" id="address">
         <label>Сімейний стан:</label> <input type="text" id="family">
@@ -88,69 +54,35 @@
 
         <div class="section-title">II. Зв’язок</div>
         <label>Телефон:</label> <input type="tel" id="phone" required>
-        <label>Месенджери (Viber, WhatsApp, Telegram):</label> <input type="text" id="messengers">
+        <label>Месенджери:</label> <input type="text" id="messengers">
 
-        <div class="section-title">III. Освіта та досвід</div>
-        <label>Освіта та спеціальність:</label> <input type="text" id="education">
+        <div class="section-title">III. Досвід</div>
+        <label>Освіта:</label> <input type="text" id="education">
         <label>Державні нагороди:</label> <textarea id="awards" rows="2"></textarea>
         <label>Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
 
         <div class="section-title">IV. Рекомендації</div>
-        <label>Рекомендація (член ОУН №1):</label> <input type="text" id="ref1">
-        <label>Рекомендація (член ОУН №2):</label> <input type="text" id="ref2">
+        <label>Член ОУН №1:</label> <input type="text" id="ref1">
+        <label>Член ОУН №2:</label> <input type="text" id="ref2">
 
-        <div class="section-title">V. Фото та Зобов'язання</div>
-        <label>Прикріпити фото кандидата:</label> 
-        <input type="file" id="photoInput" accept="image/*" style="display: none;">
-        <div class="photo-upload-box" onclick="document.getElementById('photoInput').click()">
-            <img src="" alt="Прев'ю фото" class="photo-preview" id="photoPreview">
-            <div class="oun-emblem" id="photoIcon">
-                <div class="tryzub-sword"></div>
-                <div class="tryzub-left"></div>
-                <div class="tryzub-right"></div>
-            </div>
-            <div class="photo-text" id="photoText">Натисніть,<br>щоб додати фото</div>
+        <div class="section-title">V. Засвідчення</div>
+        <label>Дата подання заяви:</label> <input type="date" id="fill_date" required>
+
+        <div class="photo-notice">
+            📸 УВАГА! Після натискання кнопки прикріпіть своє фото до повідомлення в Telegram для @Leslav.
         </div>
-        
-        <label>Чи готові Ви до беззастережного виконання наказів Проводу?</label> <input type="text" id="loyalty" placeholder="Так/Ні">
-        <label>Дата заповнення:</label> <input type="date" id="fill_date" required>
 
-        <button type="submit" class="submit-btn">Подати заяву</button>
+        <button type="submit" class="submit-btn">Відправити заяву та анкету</button>
     </form>
 </div>
 
 <script>
-    // Скрипт для прев'ю фото
-    const photoInput = document.getElementById('photoInput');
-    const photoPreview = document.getElementById('photoPreview');
-    const photoIcon = document.getElementById('photoIcon');
-    const photoText = document.getElementById('photoText');
-
-    photoInput.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.addEventListener('load', function() {
-                photoPreview.setAttribute('src', this.result);
-                photoPreview.style.display = 'block';
-                photoIcon.style.display = 'none';
-                photoText.style.display = 'none';
-            });
-            reader.readAsDataURL(file);
-        } else {
-            photoPreview.style.display = 'none';
-            photoIcon.style.display = 'flex';
-            photoText.style.display = 'block';
-        }
-    });
-
-    // Скрипт відправки
     document.getElementById('fullAnketa').onsubmit = function(e) {
         e.preventDefault();
         
         const d = {
-            psevdo: document.getElementById('psevdo').value,
             name: document.getElementById('name').value,
+            psevdo: document.getElementById('psevdo').value,
             birth: document.getElementById('birthdate').value,
             addr: document.getElementById('address').value,
             fam: document.getElementById('family').value,
@@ -162,14 +94,15 @@
             skil: document.getElementById('skills').value,
             r1: document.getElementById('ref1').value,
             r2: document.getElementById('ref2').value,
-            loyal: document.getElementById('loyalty').value,
             date: document.getElementById('fill_date').value
         };
 
-        const text = `СЛАВА УКРАЇНІ!\nПодаю анкету до лав ОУН:\n\n` +
-            `🚩 Псевдо: ${d.psevdo}\n👤 ПІБ: ${d.name}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
+        const text = `🇺🇦 ЗАЯВА ТА АНКЕТА ДО ЛАВ ОУН\n\n` +
+            `Я, ${d.name}, прошу прийняти мене до лав Організації Українських Націоналістів. Зобов’язуюсь вірно служити Нації.\n\n` +
+            `--- АНКЕТНІ ДАНІ ---\n` +
+            `🚩 Псевдо: ${d.psevdo}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
             `📞 Тел: ${d.phone}\n💬 Месенджери: ${d.mess}\n🎓 Освіта: ${d.edu}\n🎖 Нагороди: ${d.awrd}\n🛠 Навички: ${d.skil}\n` +
-            `🤝 Рекомендації: ${d.r1} та ${d.r2}\n⚔️ Готовність: ${d.loyal}\n📅 Дата: ${d.date}\n\n⚠️ (Прикріпіть фото у чаті перед відправкою!)`;
+            `🤝 Рекомендації: ${d.r1}, ${d.r2}\n📅 Дата заяви: ${d.date}\n\n(Фото додаю нижче 👇)`;
 
         const encoded = encodeURIComponent(text);
         window.location.href = `https://t.me/Leslav?text=${encoded}`;
