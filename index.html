@@ -10,12 +10,15 @@
         .emblem-header { text-align: center; margin-bottom: 15px; }
         .emblem-header img { width: 120px; height: 120px; border-radius: 50%; object-fit: contain; background: #fff; border: 2px solid #1a3a5f; padding: 5px; }
         .header-text { text-align: center; font-weight: bold; font-size: 24px; color: #1a3a5f; margin-bottom: 10px; text-transform: uppercase; }
+        
         .statement-box { background: #fff; border: 1px solid #adc5e0; padding: 20px; margin-bottom: 25px; font-style: italic; line-height: 1.8; color: #1a3a5f; font-size: 17px; border-left: 5px solid #1a3a5f; }
-        .inline-input { border: none; border-bottom: 2px solid #d32f2f; outline: none; font-family: inherit; font-size: 18px; font-weight: bold; color: #d32f2f; width: 200px; background: transparent; text-align: center; }
+        .inline-input { border: none; border-bottom: 2px solid #d32f2f; outline: none; font-family: inherit; font-size: 18px; font-weight: bold; color: #d32f2f; width: 220px; background: transparent; text-align: center; }
+        
         .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 25px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
         label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; font-size: 15px; }
         input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
-        .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
+        
+        .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 25px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
         .footer-copyright { text-align: center; margin-top: 40px; padding: 20px 0; font-size: 12px; color: #7f8c8d; border-top: 1px solid #adc5e0; }
     </style>
 </head>
@@ -25,23 +28,31 @@
     <div class="emblem-header">
         <img src="https://raw.githubusercontent.com/providnykzpoun-bit/Anketa/main/IMG_20260426_155837_907.jpg" alt="Герб ОУН">
     </div>
-    
     <div class="header-text">🇺🇦 ЗАЯВА</div>
 
     <div class="statement-box">
         Прошу прийняти мене, 
-        <input type="text" id="statement-name" class="inline-input" placeholder="Прізвище та Ім'я" required> 
-        до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації.
+        <input type="text" id="name" class="inline-input" placeholder="Прізвище та Ім'я" required> 
+        до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та беззастережно виконувати накази Проводу.
     </div>
     
-    <form id="fullAnketa">
-        <div class="section-title">🇺🇦 Анкетні дані</div>
-        <label>Псевдо:</label> <input type="text" id="psevdo" required>
-        <label>Номер телефону:</label> <input type="tel" id="phone" required placeholder="+380...">
+    <form id="anketa">
+        <div class="section-title">🇺🇦 I. Персональні дані</div>
+        <label>Бажане псевдо:</label> <input type="text" id="psevdo" required>
+        <label>Дата народження:</label> <input type="date" id="birth" required>
         <label>Місце проживання:</label> <input type="text" id="address">
-        <label>Спеціальні навички:</label> <textarea id="skills" rows="2" placeholder="Що ви вмієте?"></textarea>
+        <label>Сімейний стан:</label> <input type="text" id="family">
 
-        <button type="submit" class="submit-btn">🇺🇦 ВІДПРАВИТИ ПРОВІДНИКУ</button>
+        <div class="section-title">🇺🇦 II. Досвід та навички</div>
+        <label>Освіта:</label> <input type="text" id="edu">
+        <label>Нагороди:</label> <input type="text" id="awards">
+        <label>Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
+
+        <div class="section-title">🇺🇦 III. Контакти</div>
+        <label>Номер телефону:</label> <input type="tel" id="phone" required placeholder="+380...">
+        <label>Рекомендації:</label> <input type="text" id="refs">
+
+        <button type="submit" class="submit-btn">🇺🇦 ВІДПРАВИТИ ЗАЯВУ</button>
     </form>
 
     <div class="footer-copyright">
@@ -50,27 +61,36 @@
 </div>
 
 <script>
-    document.getElementById('fullAnketa').onsubmit = function(e) {
+    document.getElementById('anketa').onsubmit = function(e) {
         e.preventDefault();
         
-        const name = document.getElementById('statement-name').value;
-        const psevdo = document.getElementById('psevdo').value;
-        const phone = document.getElementById('phone').value;
-        const addr = document.getElementById('address').value;
-        const skills = document.getElementById('skills').value;
+        const d = {
+            n: document.getElementById('name').value,
+            p: document.getElementById('psevdo').value,
+            b: document.getElementById('birth').value,
+            a: document.getElementById('address').value,
+            f: document.getElementById('family').value,
+            e: document.getElementById('edu').value,
+            aw: document.getElementById('awards').value,
+            s: document.getElementById('skills').value,
+            ph: document.getElementById('phone').value,
+            r: document.getElementById('refs').value
+        };
 
         const text = `🇺🇦 НОВА ЗАЯВА ДО ОУН\n\n` +
-            `Я, ${name}, прошу прийняти мене до лав ОУН.\n` +
-            `🚩 Псевдо: ${psevdo}\n` +
-            `📞 Телефон: ${phone}\n` +
-            `🏠 Місто: ${addr}\n` +
-            `🛠 Навички: ${skills}`;
+            `Я, ${d.n}, прошу прийняти мене до лав ОУН.\n\n` +
+            `🚩 Псевдо: ${d.p}\n` +
+            `📅 Дата нар: ${d.b}\n` +
+            `🏠 Адреса: ${d.a}\n` +
+            `💍 Стан: ${d.f}\n` +
+            `🎓 Освіта: ${d.e}\n` +
+            `🎖 Нагороди: ${d.aw}\n` +
+            `🛠 Навички: ${d.s}\n` +
+            `📞 Тел: ${d.ph}\n` +
+            `🤝 Рекомендації: ${d.r}`;
 
-        const encoded = encodeURIComponent(text);
-        // Відправка новому контакту @old_solo_way
-        window.location.href = `https://t.me/old_solo_way?text=${encoded}`;
+        window.location.href = `https://t.me/old_solo_way?text=${encodeURIComponent(text)}`;
     };
 </script>
-
 </body>
 </html>
