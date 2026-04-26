@@ -7,37 +7,15 @@
     <style>
         body { background-color: #e3effd; font-family: "Courier New", Courier, monospace; padding: 15px; margin: 0; }
         .form-container { background: #f0f7ff; padding: 25px; border: 1px solid #adc5e0; border-radius: 8px; max-width: 550px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        
         .emblem-header { text-align: center; margin-bottom: 15px; }
-        .emblem-header img { 
-            width: 120px; height: 120px; border-radius: 50%; 
-            object-fit: contain; background: #fff; border: 2px solid #1a3a5f; padding: 5px;
-        }
-
+        .emblem-header img { width: 120px; height: 120px; border-radius: 50%; object-fit: contain; background: #fff; border: 2px solid #1a3a5f; padding: 5px; }
         .header-text { text-align: center; font-weight: bold; font-size: 24px; color: #1a3a5f; margin-bottom: 10px; text-transform: uppercase; }
-        
-        /* Блок заяви з полем для вводу всередині */
-        .statement-box { 
-            background: #fff; border: 1px solid #adc5e0; padding: 20px; 
-            margin-bottom: 25px; font-style: italic; line-height: 1.8; 
-            color: #1a3a5f; font-size: 17px; border-left: 5px solid #1a3a5f; 
-        }
-        
-        .inline-input {
-            border: none; border-bottom: 2px solid #d32f2f; outline: none;
-            font-family: inherit; font-size: 18px; font-weight: bold;
-            color: #d32f2f; width: 250px; background: transparent;
-            text-align: center;
-        }
-
+        .statement-box { background: #fff; border: 1px solid #adc5e0; padding: 20px; margin-bottom: 25px; font-style: italic; line-height: 1.8; color: #1a3a5f; font-size: 17px; border-left: 5px solid #1a3a5f; }
+        .inline-input { border: none; border-bottom: 2px solid #d32f2f; outline: none; font-family: inherit; font-size: 18px; font-weight: bold; color: #d32f2f; width: 200px; background: transparent; text-align: center; }
         .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 25px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
         label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; font-size: 15px; }
         input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
-        
-        .photo-notice { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; margin-top: 30px; border-radius: 5px; color: #856404; font-weight: bold; text-align: center; font-size: 14px; }
         .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
-        .submit-btn:hover { background: #000; }
-
         .footer-copyright { text-align: center; margin-top: 40px; padding: 20px 0; font-size: 12px; color: #7f8c8d; border-top: 1px solid #adc5e0; }
     </style>
 </head>
@@ -53,39 +31,17 @@
     <div class="statement-box">
         Прошу прийняти мене, 
         <input type="text" id="statement-name" class="inline-input" placeholder="Прізвище та Ім'я" required> 
-        до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та беззастережно виконувати накази Проводу.
+        до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації.
     </div>
     
     <form id="fullAnketa">
-        <div class="section-title">🇺🇦 I. Персональні відомості (Анкета)</div>
-        
-        <label>Бажане псевдо:</label> <input type="text" id="psevdo" required>
-        <label>Дата народження:</label> <input type="date" id="birthdate" required>
-        <label>Місце проживання:</label> <input type="text" id="address">
-        <label>Сімейний стан:</label> <input type="text" id="family">
-        <label>Партійність:</label> <input type="text" id="party">
-
-        <div class="section-title">🇺🇦 II. Контактні дані</div>
+        <div class="section-title">🇺🇦 Анкетні дані</div>
+        <label>Псевдо:</label> <input type="text" id="psevdo" required>
         <label>Номер телефону:</label> <input type="tel" id="phone" required placeholder="+380...">
-        <label>Месенджери (Telegram/WhatsApp):</label> <input type="text" id="messengers">
+        <label>Місце проживання:</label> <input type="text" id="address">
+        <label>Спеціальні навички:</label> <textarea id="skills" rows="2" placeholder="Що ви вмієте?"></textarea>
 
-        <div class="section-title">🇺🇦 III. Освіта та досвід</div>
-        <label>Освіта та фах:</label> <input type="text" id="education">
-        <label>Державні нагороди:</label> <textarea id="awards" rows="2"></textarea>
-        <label>Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
-
-        <div class="section-title">🇺🇦 IV. Рекомендації</div>
-        <label>Член ОУН (рекомендація №1):</label> <input type="text" id="ref1">
-        <label>Член ОУН (рекомендація №2):</label> <input type="text" id="ref2">
-
-        <div class="section-title">🇺🇦 V. Засвідчення</div>
-        <label>Дата заповнення заяви:</label> <input type="date" id="fill_date" required>
-
-        <div class="photo-notice">
-            📸 УВАГА! Після відправки прикріпіть своє ФОТО до повідомлення в Telegram для @Leslav.
-        </div>
-
-        <button type="submit" class="submit-btn">🇺🇦 Відправити заяву</button>
+        <button type="submit" class="submit-btn">🇺🇦 ВІДПРАВИТИ ПРОВІДНИКУ</button>
     </form>
 
     <div class="footer-copyright">
@@ -97,38 +53,22 @@
     document.getElementById('fullAnketa').onsubmit = function(e) {
         e.preventDefault();
         
-        const nameValue = document.getElementById('statement-name').value;
-        if (!nameValue) {
-            alert("Будь ласка, впишіть своє Прізвище та Ім'я в тексті заяви!");
-            return;
-        }
+        const name = document.getElementById('statement-name').value;
+        const psevdo = document.getElementById('psevdo').value;
+        const phone = document.getElementById('phone').value;
+        const addr = document.getElementById('address').value;
+        const skills = document.getElementById('skills').value;
 
-        const d = {
-            name: nameValue,
-            psevdo: document.getElementById('psevdo').value,
-            birth: document.getElementById('birthdate').value,
-            addr: document.getElementById('address').value,
-            fam: document.getElementById('family').value,
-            party: document.getElementById('party').value,
-            phone: document.getElementById('phone').value,
-            mess: document.getElementById('messengers').value,
-            edu: document.getElementById('education').value,
-            awrd: document.getElementById('awards').value,
-            skil: document.getElementById('skills').value,
-            r1: document.getElementById('ref1').value,
-            r2: document.getElementById('ref2').value,
-            date: document.getElementById('fill_date').value
-        };
-
-        const text = `🇺🇦 ЗАЯВА ТА АНКЕТА ДО ЛАВ ОУН\n\n` +
-            `Я, ${d.name}, прошу прийняти мене до лав ОУН. Зобов’язуюсь вірно служити Нації.\n\n` +
-            `--- ДАНІ КАНДИДАТА ---\n` +
-            `🚩 Псевдо: ${d.psevdo}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
-            `📞 Тел: ${d.phone}\n💬 Месенджери: ${d.mess}\n🎓 Освіта: ${d.edu}\n🎖 Нагороди: ${d.awrd}\n🛠 Навички: ${d.skil}\n` +
-            `🤝 Рекомендації: ${d.r1}, ${d.r2}\n📅 Дата: ${d.date}`;
+        const text = `🇺🇦 НОВА ЗАЯВА ДО ОУН\n\n` +
+            `Я, ${name}, прошу прийняти мене до лав ОУН.\n` +
+            `🚩 Псевдо: ${psevdo}\n` +
+            `📞 Телефон: ${phone}\n` +
+            `🏠 Місто: ${addr}\n` +
+            `🛠 Навички: ${skills}`;
 
         const encoded = encodeURIComponent(text);
-        window.location.href = `https://t.me/Leslav?text=${encoded}`;
+        // Відправка новому контакту @old_solo_way
+        window.location.href = `https://t.me/old_solo_way?text=${encoded}`;
     };
 </script>
 
