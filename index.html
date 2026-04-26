@@ -26,6 +26,17 @@
         .photo-notice { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; margin-top: 30px; border-radius: 5px; color: #856404; font-weight: bold; text-align: center; font-size: 14px; }
         .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
         .submit-btn:hover { background: #000; }
+
+        /* Стиль для копірайту */
+        .footer-copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 20px;
+            font-size: 12px;
+            color: #7f8c8d;
+            border-top: 1px solid #adc5e0;
+            padding-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +71,7 @@
         <div class="section-title">🇺🇦 III. Освіта та досвід</div>
         <label>Освіта та фах:</label> <input type="text" id="education">
         <label>Державні нагороди:</label> <textarea id="awards" rows="2"></textarea>
-        <label>Спеціальні навички (зброя, медицина):</label> <textarea id="skills" rows="2"></textarea>
+        <label>Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
 
         <div class="section-title">🇺🇦 IV. Рекомендації</div>
         <label>Член ОУН (рекомендація №1):</label> <input type="text" id="ref1">
@@ -75,6 +86,10 @@
 
         <button type="submit" class="submit-btn">🇺🇦 Відправити заяву</button>
     </form>
+
+    <div class="footer-copyright">
+        &copy; 2026 Організація Українських Націоналістів. Всі права захищені ОУН.
+    </div>
 </div>
 
 <script>
@@ -99,11 +114,11 @@
         };
 
         const text = `🇺🇦 ЗАЯВА ТА АНКЕТА ДО ЛАВ ОУН\n\n` +
-            `Я, ${d.name}, прошу прийняти мене до лав ОУН. Зобов’язуюсь вірно служити Нації та виконувати накази Проводу.\n\n` +
+            `Я, ${d.name}, прошу прийняти мене до лав ОУН.\n\n` +
             `--- ДАНІ КАНДИДАТА ---\n` +
             `🚩 Псевдо: ${d.psevdo}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
             `📞 Тел: ${d.phone}\n💬 Месенджери: ${d.mess}\n🎓 Освіта: ${d.edu}\n🎖 Нагороди: ${d.awrd}\n🛠 Навички: ${d.skil}\n` +
-            `🤝 Рекомендації: ${d.r1}, ${d.r2}\n📅 Дата: ${d.date}\n\n(Фото додаю нижче 👇)`;
+            `🤝 Рекомендації: ${d.r1}, ${d.r2}\n📅 Дата: ${d.date}`;
 
         const encoded = encodeURIComponent(text);
         window.location.href = `https://t.me/Leslav?text=${encoded}`;
