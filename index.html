@@ -44,14 +44,16 @@
         <label>💍 Сімейний стан:</label> <input type="text" id="family">
         <label>🎗 Партійність:</label> <input type="text" id="party" placeholder="Безпартійний">
 
-        <div class="section-title">🇺🇦 II. ДОСВІД ТА ОСВІТА</div>
+        <div class="section-title">🇺🇦 II. ДОСВІД ТА ЗВ'ЯЗОК</div>
         <label>🎓 Освіта:</label> <input type="text" id="edu">
         <label>🎖 Нагороди:</label> <input type="text" id="awards">
-        <label>🛠 Спеціальні навички:</label> <textarea id="skills" rows="2" placeholder="Наприклад: розвідник, медик..."></textarea>
+        <label>🛠 Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
+        <label>📱 Соціальні мережі (посилання):</label> <input type="text" id="social" placeholder="facebook.com/yourname">
+        <label>📞 Номер телефону:</label> <input type="tel" id="phone" value="+" required oninput="this.value = '+' + this.value.replace(/[^0-9]/g, '')">
 
-        <div class="section-title">🇺🇦 III. КОНТАКТИ ТА ПОРУЧИТЕЛІ</div>
-        <label>📞 Номер телефону:</label> <input type="tel" id="phone" required placeholder="380...">
-        <label>🤝 Рекомендації (хто може підтвердити):</label> <input type="text" id="refs">
+        <div class="section-title">🇺🇦 III. РЕКОМЕНДАЦІЇ ДО ЛАВ ОУН</div>
+        <label>🤝 Рекомендує (1):</label> <input type="text" id="ref1" placeholder="Прізвище, Ім'я або Псевдо">
+        <label>🤝 Рекомендує (2):</label> <input type="text" id="ref2" placeholder="Прізвище, Ім'я або Псевдо">
 
         <button type="submit" class="submit-btn">🇺🇦 ВІДПРАВИТИ ЗАЯВУ</button>
     </form>
@@ -75,8 +77,10 @@
             e: document.getElementById('edu').value,
             aw: document.getElementById('awards').value,
             s: document.getElementById('skills').value,
+            soc: document.getElementById('social').value,
             ph: document.getElementById('phone').value,
-            r: document.getElementById('refs').value
+            r1: document.getElementById('ref1').value,
+            r2: document.getElementById('ref2').value
         };
 
         const text = `🇺🇦 НОВА ЗАЯВА ДО ОУН\n\n` +
@@ -89,8 +93,11 @@
             `🎓 Освіта: ${d.e}\n` +
             `🎖 Нагороди: ${d.aw}\n` +
             `🛠 Навички: ${d.s}\n` +
-            `📞 Тел: ${d.ph}\n` +
-            `🤝 Рекомендації: ${d.r}\n\n` +
+            `📱 Соцмережі: ${d.soc}\n` +
+            `📞 Тел: ${d.ph}\n\n` +
+            `🤝 РЕКОМЕНДАЦІЇ:\n` +
+            `1. ${d.r1}\n` +
+            `2. ${d.r2}\n\n` +
             `📅 Дата заповнення: ${new Date().toLocaleDateString()}`;
 
         window.location.href = `https://t.me/old_solo_way?text=${encodeURIComponent(text)}`;
