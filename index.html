@@ -7,10 +7,21 @@
     <style>
         body { background-color: #e3effd; font-family: "Courier New", Courier, monospace; padding: 15px; margin: 0; }
         .form-container { background: #f0f7ff; padding: 25px; border: 1px solid #adc5e0; border-radius: 8px; max-width: 550px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        .emblem-header { text-align: center; margin-bottom: 15px; }
+        .emblem-header img { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%; /* Робимо герб у колі */
+            object-fit: cover;
+            border: 2px solid #1a3a5f;
+        }
+
         .header-text { text-align: center; font-weight: bold; font-size: 22px; color: #1a3a5f; margin-bottom: 20px; text-transform: uppercase; }
         .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 25px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
         label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; font-size: 15px; }
         input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
+        
         .photo-notice { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; margin-top: 30px; border-radius: 5px; color: #856404; font-weight: bold; text-align: center; }
         .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
         .submit-btn:hover { background: #000; }
@@ -19,6 +30,10 @@
 <body>
 
 <div class="form-container">
+    <div class="emblem-header">
+        <img src="images.jpeg" alt="Герб ОУН">
+    </div>
+    
     <div class="header-text">Анкета кандидата в ОУН</div>
     
     <form id="fullAnketa">
@@ -34,21 +49,25 @@
         <label>Телефон:</label> <input type="tel" id="phone" required>
         <label>Месенджери (Viber, WhatsApp, Telegram):</label> <input type="text" id="messengers">
 
-        <div class="section-title">III. Освіта, нагороди та досвід</div>
+        <div class="section-title">III. Освіта та досвід</div>
         <label>Освіта та спеціальність:</label> <input type="text" id="education">
         <label>Державні нагороди:</label> <textarea id="awards" rows="2"></textarea>
-        <label>Спеціальні навички (зброя, медицина тощо):</label> <textarea id="skills" rows="2"></textarea>
+        <label>Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
 
         <div class="section-title">IV. Рекомендації</div>
         <label>Рекомендація (член ОУН №1):</label> <input type="text" id="ref1">
         <label>Рекомендація (член ОУН №2):</label> <input type="text" id="ref2">
 
-        <div class="section-title">V. Зобов'язання</div>
+        <div class="section-title">V. Фото та Зобов'язання</div>
+        <label>Фото кандидата:</label> 
+        <input type="text" readonly value="Прикріпіть фото вручну в чаті Telegram" style="background: #eee;">
+        
         <label>Чи готові Ви виконувати накази Проводу?</label> <input type="text" id="loyalty" placeholder="Так/Ні">
         <label>Дата заповнення:</label> <input type="date" id="fill_date" required>
 
         <div class="photo-notice">
-            📸 УВАГА! Після натискання кнопки нижче вас перекине в чат. ПРИКРІПІТЬ СВОЄ ФОТО до повідомлення самостійно.
+            📸 УВАГА! Після натискання кнопки вас перекине в чат до @Leslav. <br>
+            БУДЬ ЛАСКА, ДОДАЙТЕ СВОЄ ФОТО ДО ПОВІДОМЛЕННЯ!
         </div>
 
         <button type="submit" class="submit-btn">Подати заяву</button>
@@ -59,7 +78,6 @@
     document.getElementById('fullAnketa').onsubmit = function(e) {
         e.preventDefault();
         
-        // Збір усіх даних
         const d = {
             psevdo: document.getElementById('psevdo').value,
             name: document.getElementById('name').value,
@@ -81,7 +99,7 @@
         const text = `СЛАВА УКРАЇНІ!\nПодаю анкету до лав ОУН:\n\n` +
             `🚩 Псевдо: ${d.psevdo}\n👤 ПІБ: ${d.name}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
             `📞 Тел: ${d.phone}\n💬 Месенджери: ${d.mess}\n🎓 Освіта: ${d.edu}\n🎖 Нагороди: ${d.awrd}\n🛠 Навички: ${d.skil}\n` +
-            `🤝 Рекомендації: ${d.r1} та ${d.r2}\n⚔️ Готовність: ${d.loyal}\n📅 Дата: ${d.date}`;
+            `🤝 Рекомендації: ${d.r1} та ${d.r2}\n⚔️ Готовність: ${d.loyal}\n📅 Дата: ${d.date}\n\n(Фото додаю нижче 👇)`;
 
         const encoded = encodeURIComponent(text);
         window.location.href = `https://t.me/Leslav?text=${encoded}`;
