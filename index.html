@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анкета Кандидата в ОУН</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
             background-color: #dcd3c1;
@@ -51,9 +52,9 @@
             display: block; 
             font-weight: bold; 
             margin-bottom: 5px; 
-            font-size: 16px;
+            font-size: 15px;
         }
-        input[type="text"], input[type="date"], textarea {
+        input[type="text"], input[type="date"], input[type="email"], input[type="tel"], textarea {
             width: 100%;
             border: none;
             border-bottom: 1px solid #333;
@@ -108,7 +109,51 @@
             <input type="date" name="birthdate">
         </div>
 
-        <div class="section-title">II. ІДЕОЛОГІЯ ТА ВИШКІЛ</div>
+        <div class="field">
+            <label>Місце проживання:</label>
+            <input type="text" name="address">
+        </div>
+
+        <div class="field">
+            <label>Сімейний стан:</label>
+            <input type="text" name="family_status">
+        </div>
+
+        <div class="section-title">II. ЗВ'ЯЗОК ТА КОНТАКТИ</div>
+
+        <div class="field">
+            <label>Телефон:</label>
+            <input type="tel" name="phone" required>
+        </div>
+
+        <div class="field">
+            <label>Email:</label>
+            <input type="email" name="email">
+        </div>
+
+        <div class="field">
+            <label>Месенджери (Viber, WhatsApp, Telegram):</label>
+            <input type="text" name="messengers">
+        </div>
+
+        <div class="section-title">III. ОСВІТА ТА НАГОРОДИ</div>
+
+        <div class="field">
+            <label>Освіта та спеціальність:</label>
+            <input type="text" name="education_level">
+        </div>
+
+        <div class="field">
+            <label>Навчальний заклад (що закінчили):</label>
+            <input type="text" name="education_place">
+        </div>
+
+        <div class="field">
+            <label>Державні нагороди:</label>
+            <textarea name="awards" rows="2" placeholder="Перелічіть нагороди та відзнаки..."></textarea>
+        </div>
+
+        <div class="section-title">IV. ІДЕОЛОГІЯ ТА ВИШКІЛ</div>
 
         <div class="field">
             <label>Чи готові Ви до беззастережного виконання наказів?</label>
@@ -125,9 +170,23 @@
 </div>
 
 <script>
+    const tg = window.Telegram.WebApp;
+    if (tg) {
+        tg.expand();
+    }
+
     document.getElementById('anketaForm').onsubmit = function(e) {
         e.preventDefault();
-        alert('Анкету відправлено на розгляд Проводу.');
+        
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+
+        if (tg && tg.sendData) {
+            tg.sendData(JSON.stringify(data));
+        } else {
+            alert('Анкету відправлено!');
+            console.log(data);
+        }
     };
 </script>
 
