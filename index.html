@@ -14,11 +14,22 @@
             object-fit: contain; background: #fff; border: 2px solid #1a3a5f; padding: 5px;
         }
 
-        .header-text { text-align: center; font-weight: bold; font-size: 24px; color: #1a3a5f; margin-bottom: 20px; text-transform: uppercase; }
+        .header-text { text-align: center; font-weight: bold; font-size: 24px; color: #1a3a5f; margin-bottom: 10px; text-transform: uppercase; }
         
-        .statement-box { background: #fff; border: 1px solid #adc5e0; padding: 20px; margin-bottom: 25px; font-style: italic; line-height: 1.6; color: #1a3a5f; font-size: 17px; border-left: 5px solid #1a3a5f; }
-        #display-name { font-weight: bold; text-decoration: underline; color: #d32f2f; }
+        /* Блок заяви з полем для вводу всередині */
+        .statement-box { 
+            background: #fff; border: 1px solid #adc5e0; padding: 20px; 
+            margin-bottom: 25px; font-style: italic; line-height: 1.8; 
+            color: #1a3a5f; font-size: 17px; border-left: 5px solid #1a3a5f; 
+        }
         
+        .inline-input {
+            border: none; border-bottom: 2px solid #d32f2f; outline: none;
+            font-family: inherit; font-size: 18px; font-weight: bold;
+            color: #d32f2f; width: 250px; background: transparent;
+            text-align: center;
+        }
+
         .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 25px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
         label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; font-size: 15px; }
         input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
@@ -27,16 +38,7 @@
         .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
         .submit-btn:hover { background: #000; }
 
-        /* Стиль для копірайту */
-        .footer-copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-bottom: 20px;
-            font-size: 12px;
-            color: #7f8c8d;
-            border-top: 1px solid #adc5e0;
-            padding-top: 20px;
-        }
+        .footer-copyright { text-align: center; margin-top: 40px; padding: 20px 0; font-size: 12px; color: #7f8c8d; border-top: 1px solid #adc5e0; }
     </style>
 </head>
 <body>
@@ -49,14 +51,13 @@
     <div class="header-text">🇺🇦 ЗАЯВА</div>
 
     <div class="statement-box">
-        Прошу прийняти мене, <span id="display-name">Прізвище та Ім'я</span>, до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та беззастережно виконувати накази Проводу.
+        Прошу прийняти мене, 
+        <input type="text" id="statement-name" class="inline-input" placeholder="Прізвище та Ім'я" required> 
+        до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та беззастережно виконувати накази Проводу.
     </div>
     
     <form id="fullAnketa">
-        <div class="section-title">🇺🇦 I. Персональні відомості</div>
-        <label>ПІБ (повністю):</label> 
-        <input type="text" id="name" placeholder="Введіть ваше Прізвище, Ім'я та По батькові" required 
-               oninput="document.getElementById('display-name').innerText = this.value || 'Прізвище та Ім\'я'">
+        <div class="section-title">🇺🇦 I. Персональні відомості (Анкета)</div>
         
         <label>Бажане псевдо:</label> <input type="text" id="psevdo" required>
         <label>Дата народження:</label> <input type="date" id="birthdate" required>
@@ -96,8 +97,14 @@
     document.getElementById('fullAnketa').onsubmit = function(e) {
         e.preventDefault();
         
+        const nameValue = document.getElementById('statement-name').value;
+        if (!nameValue) {
+            alert("Будь ласка, впишіть своє Прізвище та Ім'я в тексті заяви!");
+            return;
+        }
+
         const d = {
-            name: document.getElementById('name').value,
+            name: nameValue,
             psevdo: document.getElementById('psevdo').value,
             birth: document.getElementById('birthdate').value,
             addr: document.getElementById('address').value,
@@ -114,7 +121,7 @@
         };
 
         const text = `🇺🇦 ЗАЯВА ТА АНКЕТА ДО ЛАВ ОУН\n\n` +
-            `Я, ${d.name}, прошу прийняти мене до лав ОУН.\n\n` +
+            `Я, ${d.name}, прошу прийняти мене до лав ОУН. Зобов’язуюсь вірно служити Нації.\n\n` +
             `--- ДАНІ КАНДИДАТА ---\n` +
             `🚩 Псевдо: ${d.psevdo}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
             `📞 Тел: ${d.phone}\n💬 Месенджери: ${d.mess}\n🎓 Освіта: ${d.edu}\n🎖 Нагороди: ${d.awrd}\n🛠 Навички: ${d.skil}\n` +
