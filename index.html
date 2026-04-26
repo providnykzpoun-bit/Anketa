@@ -14,14 +14,14 @@
             object-fit: contain; background: #fff; border: 2px solid #1a3a5f; padding: 5px;
         }
 
-        .header-text { text-align: center; font-weight: bold; font-size: 22px; color: #1a3a5f; margin-bottom: 20px; text-transform: uppercase; }
+        .header-text { text-align: center; font-weight: bold; font-size: 24px; color: #1a3a5f; margin-bottom: 20px; text-transform: uppercase; }
         
-        /* Стиль для тексту самої заяви */
-        .statement-box { background: #fff; border: 1px solid #adc5e0; padding: 15px; margin-bottom: 20px; font-style: italic; line-height: 1.5; color: #1a3a5f; }
+        .statement-box { background: #fff; border: 1px solid #adc5e0; padding: 20px; margin-bottom: 25px; font-style: italic; line-height: 1.6; color: #1a3a5f; font-size: 17px; border-left: 5px solid #1a3a5f; }
+        #display-name { font-weight: bold; text-decoration: underline; color: #d32f2f; }
         
         .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 25px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
         label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; font-size: 15px; }
-        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
+        input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
         
         .photo-notice { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; margin-top: 30px; border-radius: 5px; color: #856404; font-weight: bold; text-align: center; font-size: 14px; }
         .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
@@ -35,44 +35,45 @@
         <img src="https://raw.githubusercontent.com/providnykzpoun-bit/Anketa/main/IMG_20260426_155837_907.jpg" alt="Герб ОУН">
     </div>
     
-    <div class="header-text">ЗАЯВА</div>
+    <div class="header-text">🇺🇦 ЗАЯВА</div>
 
     <div class="statement-box">
-        Прошу прийняти мене, <span id="display-name">____________________</span>, до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та виконувати накази Проводу.
+        Прошу прийняти мене, <span id="display-name">Прізвище та Ім'я</span>, до лав Організації Українських Націоналістів (ОУН). Зобов’язуюсь вірно служити Українській Нації, дотримуватись Уставу та беззастережно виконувати накази Проводу.
     </div>
     
     <form id="fullAnketa">
-        <div class="section-title">I. Персональні відомості (Анкета)</div>
+        <div class="section-title">🇺🇦 I. Персональні відомості</div>
         <label>ПІБ (повністю):</label> 
-        <input type="text" id="name" placeholder="Прізвище, Ім'я, По батькові" required oninput="document.getElementById('display-name').innerText = this.value || '____________________'">
+        <input type="text" id="name" placeholder="Введіть ваше Прізвище, Ім'я та По батькові" required 
+               oninput="document.getElementById('display-name').innerText = this.value || 'Прізвище та Ім\'я'">
         
         <label>Бажане псевдо:</label> <input type="text" id="psevdo" required>
-        <label>Дата народження:</label> <input type="date" id="birthdate">
+        <label>Дата народження:</label> <input type="date" id="birthdate" required>
         <label>Місце проживання:</label> <input type="text" id="address">
         <label>Сімейний стан:</label> <input type="text" id="family">
         <label>Партійність:</label> <input type="text" id="party">
 
-        <div class="section-title">II. Зв’язок</div>
-        <label>Телефон:</label> <input type="tel" id="phone" required>
-        <label>Месенджери:</label> <input type="text" id="messengers">
+        <div class="section-title">🇺🇦 II. Контактні дані</div>
+        <label>Номер телефону:</label> <input type="tel" id="phone" required placeholder="+380...">
+        <label>Месенджери (Telegram/WhatsApp):</label> <input type="text" id="messengers">
 
-        <div class="section-title">III. Досвід</div>
-        <label>Освіта:</label> <input type="text" id="education">
+        <div class="section-title">🇺🇦 III. Освіта та досвід</div>
+        <label>Освіта та фах:</label> <input type="text" id="education">
         <label>Державні нагороди:</label> <textarea id="awards" rows="2"></textarea>
-        <label>Спеціальні навички:</label> <textarea id="skills" rows="2"></textarea>
+        <label>Спеціальні навички (зброя, медицина):</label> <textarea id="skills" rows="2"></textarea>
 
-        <div class="section-title">IV. Рекомендації</div>
-        <label>Член ОУН №1:</label> <input type="text" id="ref1">
-        <label>Член ОУН №2:</label> <input type="text" id="ref2">
+        <div class="section-title">🇺🇦 IV. Рекомендації</div>
+        <label>Член ОУН (рекомендація №1):</label> <input type="text" id="ref1">
+        <label>Член ОУН (рекомендація №2):</label> <input type="text" id="ref2">
 
-        <div class="section-title">V. Засвідчення</div>
-        <label>Дата подання заяви:</label> <input type="date" id="fill_date" required>
+        <div class="section-title">🇺🇦 V. Засвідчення</div>
+        <label>Дата заповнення заяви:</label> <input type="date" id="fill_date" required>
 
         <div class="photo-notice">
-            📸 УВАГА! Після натискання кнопки прикріпіть своє фото до повідомлення в Telegram для @Leslav.
+            📸 УВАГА! Після відправки прикріпіть своє ФОТО до повідомлення в Telegram для @Leslav.
         </div>
 
-        <button type="submit" class="submit-btn">Відправити заяву та анкету</button>
+        <button type="submit" class="submit-btn">🇺🇦 Відправити заяву</button>
     </form>
 </div>
 
@@ -98,11 +99,11 @@
         };
 
         const text = `🇺🇦 ЗАЯВА ТА АНКЕТА ДО ЛАВ ОУН\n\n` +
-            `Я, ${d.name}, прошу прийняти мене до лав Організації Українських Націоналістів. Зобов’язуюсь вірно служити Нації.\n\n` +
-            `--- АНКЕТНІ ДАНІ ---\n` +
+            `Я, ${d.name}, прошу прийняти мене до лав ОУН. Зобов’язуюсь вірно служити Нації та виконувати накази Проводу.\n\n` +
+            `--- ДАНІ КАНДИДАТА ---\n` +
             `🚩 Псевдо: ${d.psevdo}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
             `📞 Тел: ${d.phone}\n💬 Месенджери: ${d.mess}\n🎓 Освіта: ${d.edu}\n🎖 Нагороди: ${d.awrd}\n🛠 Навички: ${d.skil}\n` +
-            `🤝 Рекомендації: ${d.r1}, ${d.r2}\n📅 Дата заяви: ${d.date}\n\n(Фото додаю нижче 👇)`;
+            `🤝 Рекомендації: ${d.r1}, ${d.r2}\n📅 Дата: ${d.date}\n\n(Фото додаю нижче 👇)`;
 
         const encoded = encodeURIComponent(text);
         window.location.href = `https://t.me/Leslav?text=${encoded}`;
