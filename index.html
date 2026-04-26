@@ -3,69 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Анкета ОУН</title>
+    <title>Анкета Кандидата в ОУН</title>
     <style>
-        body { background-color: #e3effd; font-family: sans-serif; padding: 15px; }
-        .form-container { background: #f0f7ff; padding: 20px; border: 1px solid #adc5e0; border-radius: 8px; max-width: 500px; margin: auto; }
-        .header-text { text-align: center; font-weight: bold; font-size: 20px; color: #1a3a5f; margin-bottom: 20px; }
-        .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 20px; font-weight: bold; text-transform: uppercase; }
-        label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; }
-        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; }
-        .submit-btn { width: 100%; padding: 15px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 30px; cursor: pointer; border-radius: 4px; }
-        .photo-msg { font-size: 13px; color: #555; text-align: center; margin-top: 10px; }
+        body { background-color: #e3effd; font-family: "Courier New", Courier, monospace; padding: 15px; margin: 0; }
+        .form-container { background: #f0f7ff; padding: 25px; border: 1px solid #adc5e0; border-radius: 8px; max-width: 550px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header-text { text-align: center; font-weight: bold; font-size: 22px; color: #1a3a5f; margin-bottom: 20px; text-transform: uppercase; }
+        .section-title { background: #1a3a5f; color: #fff; padding: 10px; margin-top: 25px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
+        label { display: block; margin-top: 15px; font-weight: bold; color: #2c3e50; font-size: 15px; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #adc5e0; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 16px; }
+        .photo-notice { background: #fff3cd; border: 1px solid #ffeeba; padding: 15px; margin-top: 30px; border-radius: 5px; color: #856404; font-weight: bold; text-align: center; }
+        .submit-btn { width: 100%; padding: 18px; background: #1a3a5f; color: white; border: none; font-weight: bold; margin-top: 20px; cursor: pointer; border-radius: 4px; font-size: 18px; text-transform: uppercase; }
+        .submit-btn:hover { background: #000; }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <div class="header-text">АНКЕТА КАНДИДАТА В ОУН</div>
-    <form id="mainForm">
-        <div class="section-title">I. ПЕРСОНАЛЬНІ ВІДОМОСТІ</div>
-        <label>Псевдо:</label> <input type="text" id="psevdo" required>
+    <div class="header-text">Анкета кандидата в ОУН</div>
+    
+    <form id="fullAnketa">
+        <div class="section-title">I. Персональні відомості</div>
+        <label>Бажане псевдо ОУН:</label> <input type="text" id="psevdo" required>
         <label>ПІБ (справжнє):</label> <input type="text" id="name" required>
-        <label>Телефон:</label> <input type="tel" id="phone" required>
+        <label>Дата народження:</label> <input type="date" id="birthdate">
         <label>Місце проживання:</label> <input type="text" id="address">
-        
-        <div class="section-title">II. РЕКОМЕНДАЦІЇ ТА ДОСВІД</div>
-        <label>Хто надав рекомендації (2 особи):</label> <textarea id="refs" rows="2"></textarea>
-        <label>Державні нагороди:</label> <textarea id="awards" rows="2"></textarea>
-        
-        <div class="section-title">III. ЗОБОВ'ЯЗАННЯ</div>
-        <label>Готовність виконувати накази:</label> <input type="text" id="loyalty" placeholder="Так/Ні">
+        <label>Сімейний стан:</label> <input type="text" id="family">
+        <label>Партійність:</label> <input type="text" id="party">
 
-        <p class="photo-msg">⚠️ Фото додайте, будь ласка, окремим файлом у повідомленні в Telegram.</p>
-        
-        <button type="submit" class="submit-btn">ПОДАТИ ЗАЯВУ ЧЕРЕЗ TELEGRAM</button>
+        <div class="section-title">II. Зв’язок</div>
+        <label>Телефон:</label> <input type="tel" id="phone" required>
+        <label>Месенджери (Viber, WhatsApp, Telegram):</label> <input type="text" id="messengers">
+
+        <div class="section-title">III. Освіта, нагороди та досвід</div>
+        <label>Освіта та спеціальність:</label> <input type="text" id="education">
+        <label>Державні нагороди:</label> <textarea id="awards" rows="2"></textarea>
+        <label>Спеціальні навички (зброя, медицина тощо):</label> <textarea id="skills" rows="2"></textarea>
+
+        <div class="section-title">IV. Рекомендації</div>
+        <label>Рекомендація (член ОУН №1):</label> <input type="text" id="ref1">
+        <label>Рекомендація (член ОУН №2):</label> <input type="text" id="ref2">
+
+        <div class="section-title">V. Зобов'язання</div>
+        <label>Чи готові Ви виконувати накази Проводу?</label> <input type="text" id="loyalty" placeholder="Так/Ні">
+        <label>Дата заповнення:</label> <input type="date" id="fill_date" required>
+
+        <div class="photo-notice">
+            📸 УВАГА! Після натискання кнопки нижче вас перекине в чат. ПРИКРІПІТЬ СВОЄ ФОТО до повідомлення самостійно.
+        </div>
+
+        <button type="submit" class="submit-btn">Подати заяву</button>
     </form>
 </div>
 
 <script>
-    document.getElementById('mainForm').onsubmit = function(e) {
+    document.getElementById('fullAnketa').onsubmit = function(e) {
         e.preventDefault();
         
-        // Збираємо дані
-        const psevdo = document.getElementById('psevdo').value;
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const address = document.getElementById('address').value;
-        const refs = document.getElementById('refs').value;
-        const awards = document.getElementById('awards').value;
-        const loyalty = document.getElementById('loyalty').value;
+        // Збір усіх даних
+        const d = {
+            psevdo: document.getElementById('psevdo').value,
+            name: document.getElementById('name').value,
+            birth: document.getElementById('birthdate').value,
+            addr: document.getElementById('address').value,
+            fam: document.getElementById('family').value,
+            party: document.getElementById('party').value,
+            phone: document.getElementById('phone').value,
+            mess: document.getElementById('messengers').value,
+            edu: document.getElementById('education').value,
+            awrd: document.getElementById('awards').value,
+            skil: document.getElementById('skills').value,
+            r1: document.getElementById('ref1').value,
+            r2: document.getElementById('ref2').value,
+            loyal: document.getElementById('loyalty').value,
+            date: document.getElementById('fill_date').value
+        };
 
-        // Формуємо текст повідомлення
-        const fullText = `СЛАВА УКРАЇНІ!\nПодаю анкету кандидата:\n\n` +
-                         `📌 Псевдо: ${psevdo}\n` +
-                         `👤 ПІБ: ${name}\n` +
-                         `📞 Тел: ${phone}\n` +
-                         `🏠 Адреса: ${address}\n` +
-                         `🎖 Нагороди: ${awards}\n` +
-                         `🤝 Рекомендації: ${refs}\n` +
-                         `⚔️ Готовність: ${loyalty}`;
+        const text = `СЛАВА УКРАЇНІ!\nПодаю анкету до лав ОУН:\n\n` +
+            `🚩 Псевдо: ${d.psevdo}\n👤 ПІБ: ${d.name}\n📅 Народився: ${d.birth}\n🏠 Адреса: ${d.addr}\n💍 Стан: ${d.fam}\n🎗 Партійність: ${d.party}\n` +
+            `📞 Тел: ${d.phone}\n💬 Месенджери: ${d.mess}\n🎓 Освіта: ${d.edu}\n🎖 Нагороди: ${d.awrd}\n🛠 Навички: ${d.skil}\n` +
+            `🤝 Рекомендації: ${d.r1} та ${d.r2}\n⚔️ Готовність: ${d.loyal}\n📅 Дата: ${d.date}`;
 
-        const encodedText = encodeURIComponent(fullText);
-        
-        // Відкриваємо чат з вами
-        window.location.href = `https://t.me/Leslav?text=${encodedText}`;
+        const encoded = encodeURIComponent(text);
+        window.location.href = `https://t.me/Leslav?text=${encoded}`;
     };
 </script>
 
