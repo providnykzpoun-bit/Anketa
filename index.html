@@ -3,77 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОУН</title>
+    <title>АНКЕТА ДО ЛАВ ОУН</title>
     <style>
-        body { 
-            background-color: #05101c; 
-            color: #f0f4f8; 
-            font-family: sans-serif; 
-            margin: 0; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
+        body {
+            background-color: #0d1117;
+            color: #ffd700;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
+            margin: 0;
         }
-
-        .container {
-            border: 2px solid #ffd700;
-            padding: 40px 20px;
+        .main-container {
+            border: 5px solid #ffd700;
             width: 90%;
             max-width: 400px;
+            padding: 40px 20px;
             text-align: center;
+            background-color: #0d1117;
         }
-
-        h1 { 
-            color: #ffd700; 
-            font-size: 48px; 
-            margin: 0 0 10px 0; 
-            letter-spacing: 2px;
+        h1 {
+            font-size: 60px;
+            margin: 0;
+            letter-spacing: 5px;
         }
-
-        .subtitle { 
-            color: #ffd700; 
-            font-size: 12px; 
-            letter-spacing: 4px; 
+        .subtitle {
+            font-size: 14px;
+            margin-top: 10px;
             margin-bottom: 40px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .btn {
+            background-color: #004a99;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            padding: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
             text-transform: uppercase;
         }
-
-        .nav-btn { 
-            display: block;
-            background: #004a99; 
-            color: #ffd700; 
-            padding: 15px; 
-            margin: 10px 0;
-            text-decoration: none; 
-            font-weight: bold; 
-            font-size: 16px; 
-            border: 1px solid #ffd700; 
-            text-transform: uppercase;
-        }
-
-        footer { 
-            position: absolute; 
-            bottom: 20px; 
-            color: #5a7b9c; 
-            font-size: 9px; 
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 10px;
+            color: #555;
             letter-spacing: 1px;
-            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="main-container">
         <h1>ОУН</h1>
-        <div class="subtitle">ОБ'ЄДНАННЯ. ПОРЯДОК. НАЦІЯ.</div>
+        <div class="subtitle">ОБ'ЄДНАННЯ. ПОРЯДОК.<br>НАЦІЯ.</div>
 
-        <div class="main-nav">
-            <a href="rules.html" class="nav-btn">КОДЕКС НАЦІОНАЛІСТА</a>
-            <a href="today.html" class="nav-btn">СЬОГОДЕННЯ ТА РОТА УВО</a>
-            <a href="anketa.html" class="nav-btn">ВСТУП ДО ОРГАНІЗАЦІЇ</a>
-            <a href="contacts.html" class="nav-btn">КОНТАКТИ</a>
+        <div class="nav-menu">
+            <a href="rules.html" class="btn">КОДЕКС НАЦІОНАЛІСТА</a>
+            <a href="today.html" class="btn">СЬОГОДЕННЯ ТА РОТА УВО</a>
+            <a href="anketa.html" class="btn">ВСТУП ДО ОРГАНІЗАЦІЇ</a>
+            <a href="contacts.html" class="btn">КОНТАКТИ</a>
         </div>
     </div>
 
