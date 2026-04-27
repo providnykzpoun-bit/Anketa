@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пантеон ОУН</title>
+    <style>
+        body { background-color: #05101c; color: #f0f4f8; font-family: "Courier New", Courier, monospace; padding: 20px; margin: 0; }
+        h1 { color: #ffd700; text-align: center; text-transform: uppercase; letter-spacing: 3px; margin-top: 80px; margin-bottom: 40px; border-bottom: 1px solid #1e3a5f; padding-bottom: 20px; }
+        
+        /* Плаваюча кнопка повернення */
+        .floating-back {
+            position: fixed; top: 15px; left: 15px; z-index: 1001; 
+            background: #0a1e36; color: #ffd700; padding: 10px 15px; 
+            border: 1px solid #ffd700; text-decoration: none; font-size: 11px; 
+            font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+        }
+        .floating-back:hover { background: #ffd700; color: #0a1e36; }
+
+        .heroes-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; max-width: 1200px; margin: 40px auto; padding: 0 20px;
+        }
+
+        .hero-card { 
+            border: 2px solid #1e3a5f; padding: 35px 15px; text-align: center; 
+            background: #0a1e36; cursor: pointer; transition: 0.4s;
+            color: #ffd700; font-weight: bold; text-transform: uppercase;
+            letter-spacing: 1px; display: flex; flex-direction: column;
+            justify-content: center; min-height: 160px;
+        }
+        .hero-card:hover { border-color: #ffd700; background: #1a3a5f; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .hero-card span { color: #fff; font-size: 11px; margin-top: 10px; font-weight: normal; text-transform: none; }
+
+        /* Стилі для спливаючого вікна (Modal) */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; 
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #0b1a2a; margin: 5% auto; padding: 40px; 
+            border: 2px solid #ffd700; width: 90%; max-width: 700px; 
+            color: #fff; line-height: 1.8; position: relative;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .close-btn {
+            position: absolute; top: 15px; right: 25px; 
+            color: #ffd700; font-size: 35px; cursor: pointer; transition: 0.3s;
+        }
+        .close-btn:hover { color: #fff; }
+
+        footer { text-align: center; color: #5a7b9c; padding: 60px; font-size: 12px; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="floating-back">← ГОЛОВНА</a>
+
+<h1>Пантеон Національної Слави</h1>
+
+<div class="heroes-grid">
+    <div class="hero-card" onclick="openModal('konovalets')">Євген Коновалець<span>Засновник та Перший Голова ОУН</span></div>
+    <div class="hero-card" onclick="openModal('melnyk')">Андрій Мельник<span>Голова Провіднику Українських Націоналістів</span></div>
+    <div class="hero-card" onclick="openModal('kapustiansky')">Микола Капустянський<span>Генерал Армії УНР, засновник ОУН</span></div>
+    <div class="hero-card" onclick="openModal('sciborsky')">Микола Сціборський<span>Теоретик Націократії, засновник</span></div>
+    <div class="hero-card" onclick="openModal('olzhych')">Олег Ольжич<span>Ідеолог, поет, заступник Голови</span></div>
+    <div class="hero-card" onclick="openModal('teliga')">Олена Теліга<span>Символ незламності, культурна діячка</span></div>
+    <div class="hero-card" onclick="openModal('baranovsky')">Ярослав Барановський<span>Секретар Провіднику ОУН</span></div>
+    <div class="hero-card" onclick="openModal('andrievsky')">Дмитро Андрієвський<span>Дипломат та співзасновник ОУН</span></div>
+</div>
+
+<div id="bioModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle" style="color: #ffd700; text-transform: uppercase; border-bottom: 1px solid #1e3a5f; padding-bottom: 10px; margin-bottom: 20px;"></h2>
+        <div id="modalText" style="text-align: justify; font-size: 18px; color: #d1d9e0;"></div>
+    </div>
+</div>
+
+<footer>&copy; 2026 ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ</footer>
+
+<script>
+    const bios = {
+        'konovalets': { title: 'Євген Коновалець', text: 'Полковник Армії УНР, засновник ОУН. Творець структури, що стала фундаментом визвольних змагань. Його чин об’єднав націю в боротьбі за незалежність.' },
+        'melnyk': { title: 'Андрій Мельник', text: 'Полковник УНР, Голова Провіднику ОУН. Уособлення державної тяглості, дисципліни та вірності національним ідеалам у найскладніші часи.' },
+        'kapustiansky': { title: 'Микола Капустянський', text: 'Генерал-хорунжий Армії УНР, один із засновників ОУН. Військовий стратег, який стояв на засадах державної дисципліни та соборності навколо Провідника.' },
+        'sciborsky': { title: 'Микола Сціборський', text: 'Провідний ідеолог ОУН, автор концепції Націократії. Створив інтелектуальний фундамент для розбудови майбутньої української держави.' },
+        'olzhych': { title: 'Олег Ольжич', text: 'Поет-воїн, вчений, заступник Голови ОУН. Керував підпіллям на українських землях. Замучений у нацистському концтаборі Заксенгаузен.' },
+        'teliga': { title: 'Олена Теліга', text: 'Видатна діячка культури ОУН, поетка. Розстріляна нацистами у Бабиному Яру. Її смерть стала символом національної гідності та незламності.' },
+        'baranovsky': { title: 'Ярослав Барановський', text: 'Шеф штабу Організації, один із найближчих соратників Андрія Мельника. Відіграв ключову роль у розбудові внутрішньої структури ОУН.' },
+        'andrievsky': { title: 'Дмитро Андрієвський', text: 'Співзасновник ОУН, дипломат УНР. Уособлення тяглості дипломатичної традиції визвольних змагань та представник ОУН на міжнародній арені.' }
+    };
+
+    function openModal(id) {
+        document.getElementById('modalTitle').innerText = bios[id].title;
+        document.getElementById('modalText').innerText = bios[id].text;
+        document.getElementById('bioModal').style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        document.getElementById('bioModal').style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('bioModal');
+        if (event.target == modal) { closeModal(); }
+    }
+</script>
+
+</body>
+</html>
