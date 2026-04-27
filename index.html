@@ -3,111 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОУН — Державна Традиція</title>
+    <title>ОУН — Організація Українських Націоналістів</title>
     <style>
-        body { background-color: #05101c; color: #f0f4f8; font-family: "Courier New", Courier, monospace; margin: 0; padding: 0; }
+        body { 
+            background-color: #05101c; 
+            color: #f0f4f8; 
+            font-family: "Courier New", Courier, monospace; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            overflow: hidden;
+        }
+
+        .hero-section { text-align: center; border: 3px solid #ffd700; padding: 50px; background: rgba(10, 30, 54, 0.9); box-shadow: 0 0 50px rgba(0,0,0,0.8); }
         
-        .hero-section { 
-            background: linear-gradient(rgba(5,16,28,0.8), rgba(5,16,28,0.8)), 
-                        url('https://raw.githubusercontent.com/providnykzpoun-bit/Anketa/main/IMG_20260426_155837_907.jpg'); 
-            background-size: cover; background-position: center; padding: 60px 20px; text-align: center; border-bottom: 3px solid #ffd700;
+        h1 { color: #ffd700; font-size: 35px; letter-spacing: 5px; margin-bottom: 10px; text-transform: uppercase; }
+        .subtitle { color: #ffd700; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px; }
+
+        .main-nav { display: flex; flex-direction: column; gap: 20px; }
+
+        .nav-btn { 
+            background: #004a99; 
+            color: #ffd700; 
+            padding: 15px 40px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 18px; 
+            border: 2px solid #ffd700; 
+            transition: 0.4s; 
+            text-transform: uppercase;
+            text-align: center;
         }
 
-        .main-title { border: 2px solid #ffd700; display: inline-block; padding: 20px 40px; background: rgba(5,16,28,0.6); }
-        .main-title h1 { margin: 0; font-size: 26px; color: #ffd700; letter-spacing: 3px; text-transform: uppercase; }
-        .main-title p { margin: 10px 0 0 0; font-size: 14px; letter-spacing: 2px; color: #fff; text-transform: uppercase; }
+        .nav-btn:hover { background: #ffd700; color: #05101c; transform: scale(1.05); }
 
-        .content-container { max-width: 1000px; margin: auto; padding: 40px 20px; text-align: center; }
-
-        /* Повернутий блок ідеології */
-        .ideology-section { margin-bottom: 40px; }
-        .divider { color: #ffd700; margin: 20px 0; font-size: 20px; }
-        .section-header { color: #ffd700; text-transform: uppercase; letter-spacing: 3px; font-size: 24px; margin-bottom: 20px; }
-        .ideology-text { font-size: 18px; line-height: 1.6; color: #d1d9e0; max-width: 750px; margin: 0 auto 30px; }
-
-        /* Сітка на 4 блоки */
-        .nav-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 15px; 
-            margin: 40px 0;
-        }
-
-        .nav-block { 
-            border: 2px solid #ffd700; padding: 25px 10px; background: rgba(30,58,95,0.15); 
-            text-decoration: none; transition: 0.4s; border-radius: 8px; display: flex; flex-direction: column; align-items: center;
-        }
-
-        .nav-block:hover { background: rgba(30,58,95,0.4); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); transform: translateY(-3px); }
-
-        .nav-icon { font-size: 35px; color: #ffd700; margin-bottom: 10px; }
-        .nav-block h3 { color: #ffd700; margin: 5px 0; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-block p { color: #fff; font-size: 10px; margin: 5px 0 0; opacity: 0.8; text-transform: uppercase; }
-
-        .enter-btn { 
-            background: #004a99; color: #ffd700; padding: 18px 50px; text-decoration: none; 
-            font-weight: bold; font-size: 20px; border: 2px solid #ffd700; display: inline-block; 
-            transition: 0.4s; text-transform: uppercase; border-radius: 5px; margin-top: 20px;
-        }
-        .enter-btn:hover { background: #ffd700; color: #05101c; box-shadow: 0 0 20px #ffd700; }
-
-        footer { text-align: center; color: #5a7b9c; padding: 60px 20px; font-size: 11px; letter-spacing: 1px; line-height: 2; }
+        footer { position: absolute; bottom: 20px; color: #5a7b9c; font-size: 10px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-<div class="hero-section">
-    <div class="main-title">
-        <h1>БОГ — НАЦІЯ — ДЕРЖАВА</h1>
-        <p>ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ</p>
-    </div>
-</div>
+    <div class="hero-section">
+        <h1>ОУН</h1>
+        <div class="subtitle">ОБ'ЄДНАННЯ. ПОРЯДОК. НАЦІЯ.</div>
 
-<div class="content-container">
-    <div class="ideology-section">
-        <div class="divider">⚜ ——— ⚜ ——— ⚜</div>
-        <h2 class="section-header">ІДЕОЛОГІЯ ДЕРЖАВНОСТІ</h2>
-        <div class="ideology-text">
-            Ми є правонаступниками державницької традиції визвольних змагань. Наша мета — консолідація Нації навколо ідеї сильної та справедливої держави.
-        </div>
+        <nav class="main-nav">
+            <a href="rules.html" class="nav-btn">КОДЕКС НАЦІОНАЛІСТА</a>
+            
+            <a href="today.html" class="nav-btn">СЬОГОДЕННЯ ТА РОТА УВО</a>
+            
+            <a href="anketa.html" class="nav-btn">ВСТУП ДО ОРГАНІЗАЦІЇ</a>
+        </nav>
     </div>
 
-    <div class="nav-grid">
-        <a href="pantheon.html" class="nav-block">
-            <span class="nav-icon">🏛</span>
-            <h3>ПАНТЕОН</h3>
-            <p>Життєпис Провідників</p>
-        </a>
-
-        <a href="rules.html" class="nav-block">
-            <span class="nav-icon">📖</span>
-            <h3>КОДЕКС</h3>
-            <p>44 Правила Націоналіста</p>
-        </a>
-
-        <a href="today.html" class="nav-block">
-            <span class="nav-icon">🛡</span>
-            <h3>СЬОГОДЕННЯ</h3>
-            <p>Сучасна боротьба</p>
-        </a>
-
-        <a href="contacts.html" class="nav-block">
-            <span class="nav-icon">✉</span>
-            <h3>КОНТАКТИ</h3>
-            <p>Зворотний зв'язок</p>
-        </a>
-    </div>
-
-    <div class="cta-section">
-        <p style="margin-bottom: 20px; font-size: 18px;">Чи готовий ти прийняти Обов'язок та стати в лави?</p>
-        <a href="anketa.html" class="enter-btn">ЗАПОВНИТИ ЗАЯВУ</a>
-    </div>
-</div>
-
-<footer>
-    © 2026 ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ<br>
-    ЧЕСТЬ ТА ЧИН.
-</footer>
+    <footer>© 2026 ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ</footer>
 
 </body>
 </html>
