@@ -3,29 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОУН — Організація Українських Націоналістів</title>
+    <title>ОУН</title>
     <style>
-        body { background-color: #05101c; color: #f0f4f8; font-family: "Courier New", Courier, monospace; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
-        .hero-section { text-align: center; border: 3px solid #ffd700; padding: 50px; background: rgba(10, 30, 54, 0.9); box-shadow: 0 0 50px rgba(0,0,0,0.8); max-width: 500px; width: 90%; }
-        h1 { color: #ffd700; font-size: 40px; letter-spacing: 5px; margin-bottom: 10px; text-transform: uppercase; }
-        .subtitle { color: #ffd700; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px; font-weight: bold; text-transform: uppercase; }
-        .main-nav { display: flex; flex-direction: column; gap: 15px; }
-        .nav-btn { background: #004a99; color: #ffd700; padding: 15px 30px; text-decoration: none; font-weight: bold; font-size: 16px; border: 2px solid #ffd700; transition: 0.3s; text-transform: uppercase; text-align: center; }
-        .nav-btn:hover { background: #ffd700; color: #05101c; transform: translateY(-3px); }
-        footer { position: absolute; bottom: 20px; color: #5a7b9c; font-size: 10px; letter-spacing: 2px; text-align: center; }
+        body { 
+            background-color: #05101c; 
+            color: #f0f4f8; 
+            font-family: sans-serif; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh;
+        }
+
+        .container {
+            border: 2px solid #ffd700;
+            padding: 40px 20px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 { 
+            color: #ffd700; 
+            font-size: 48px; 
+            margin: 0 0 10px 0; 
+            letter-spacing: 2px;
+        }
+
+        .subtitle { 
+            color: #ffd700; 
+            font-size: 12px; 
+            letter-spacing: 4px; 
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .nav-btn { 
+            display: block;
+            background: #004a99; 
+            color: #ffd700; 
+            padding: 15px; 
+            margin: 10px 0;
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 16px; 
+            border: 1px solid #ffd700; 
+            text-transform: uppercase;
+        }
+
+        footer { 
+            position: absolute; 
+            bottom: 20px; 
+            color: #5a7b9c; 
+            font-size: 9px; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
-    <div class="hero-section">
+
+    <div class="container">
         <h1>ОУН</h1>
         <div class="subtitle">ОБ'ЄДНАННЯ. ПОРЯДОК. НАЦІЯ.</div>
-        <nav class="main-nav">
+
+        <div class="main-nav">
             <a href="rules.html" class="nav-btn">КОДЕКС НАЦІОНАЛІСТА</a>
             <a href="today.html" class="nav-btn">СЬОГОДЕННЯ ТА РОТА УВО</a>
             <a href="anketa.html" class="nav-btn">ВСТУП ДО ОРГАНІЗАЦІЇ</a>
             <a href="contacts.html" class="nav-btn">КОНТАКТИ</a>
-        </nav>
+        </div>
     </div>
+
     <footer>© 2026 ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ</footer>
+
 </body>
 </html>
