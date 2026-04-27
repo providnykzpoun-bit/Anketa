@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОУН — Державна Традиція</title>
+    <style>
+        body { background-color: #05101c; color: #f0f4f8; font-family: "Courier New", Courier, monospace; margin: 0; padding: 0; }
+        
+        /* Верхня частина з емблемою */
+        .hero-section { 
+            background: linear-gradient(rgba(5,16,28,0.85), rgba(5,16,28,0.85)), url('https://raw.githubusercontent.com/providnykzpoun-bit/Anketa/main/IMG_20260426_155837_907.jpg'); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            height: 300px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-bottom: 4px solid #ffd700; /* Золота лінія */
+        }
+
+        .content-container { max-width: 850px; margin: auto; padding: 40px 20px; line-height: 1.8; }
+        
+        h1, h2 { color: #ffd700; text-align: center; text-transform: uppercase; letter-spacing: 3px; }
+        h2 { border-bottom: 1px solid #1e3a5f; padding-bottom: 10px; margin-top: 50px; }
+
+        .quote { 
+            font-style: italic; 
+            background: #0a1e36; 
+            border-left: 6px solid #ffd700; 
+            padding: 25px; 
+            margin: 35px 0; 
+            font-size: 20px; 
+            color: #ffffff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .heroes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; }
+        
+        .hero-card { 
+            border: 1px solid #1e3a5f; 
+            padding: 20px; 
+            border-radius: 2px; 
+            background: rgba(255,255,255,0.03); 
+            transition: 0.3s;
+        }
+        .hero-card:hover { border-color: #ffd700; background: rgba(30,58,95,0.4); }
+        .hero-card b { color: #ffd700; display: block; margin-bottom: 10px; font-size: 18px; text-transform: uppercase; }
+
+        .ideology-text { 
+            text-align: justify; 
+            font-size: 19px; 
+            color: #d1d9e0; 
+            padding: 0 15px;
+        }
+
+        /* Кнопка входу */
+        .cta-box { text-align: center; margin-top: 70px; padding: 60px 20px; background: #0a1e36; border: 1px solid #1e3a5f; }
+        
+        .enter-btn { 
+            background: transparent; 
+            color: #ffd700; 
+            padding: 22px 55px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 20px; 
+            border: 2px solid #ffd700; 
+            display: inline-block; 
+            transition: 0.5s; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+        .enter-btn:hover { 
+            background: #ffd700; 
+            color: #05101c; 
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3); 
+        }
+
+        footer { text-align: center; color: #5a7b9c; padding: 50px; font-size: 13px; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+<div class="hero-section">
+    <div style="background: rgba(5,16,28,0.7); padding: 25px; border: 2px solid #ffd700; text-align: center;">
+        <h1 style="margin:0; border:none; font-size: 28px;">БОГ — НАЦІЯ — ДЕРЖАВА</h1>
+        <p style="margin:10px 0 0 0; letter-spacing:4px; font-size: 14px; color: #fff;">ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ</p>
+    </div>
+</div>
+
+<div class="content-container">
+    <h2>Ідеологія Державності</h2>
+    <div class="ideology-text">
+        <p>Ми є правонаступниками державницької традиції визвольних змагань. Наша мета — консолідація Нації навколо ідеї сильної та справедливої держави. Порядок, дисципліна та вірність Україні — це шлях справжнього націоналіста.</p>
+    </div>
+
+    <div class="quote">
+        "Україна — понад усе! Наша віра міцна, а воля до перемоги незламна. Ми будуємо майбутнє на фундаменті тисячолітньої історії."
+    </div>
+
+    <h2>Пантеон Національної Слави</h2>
+    <div class="heroes-grid">
+        <div class="hero-card">
+            <b>Андрій Мельник</b>
+            Голова Провідник, символ мудрості, виваженості та державної тяглості.
+        </div>
+        <div class="hero-card">
+            <b>Євген Коновалець</b>
+            Засновник ОУН, полковник УНР, чий чин об'єднав націю у боротьбі.
+        </div>
+        <div class="hero-card">
+            <b>Олег Ольжич</b>
+            Видатний вчений, поет та революціонер, що став жертвою за ідею.
+        </div>
+        <div class="hero-card">
+            <b>Олена Теліга</b>
+            Голос українського духу, яка своєю смертю ствердила право нації на життя.
+        </div>
+    </div>
+
+    <div class="cta-box">
+        <p style="font-size: 22px; margin-bottom: 40px; color: #fff;">Чи готовий ти прийняти Обов'язок та стати в лави?</p>
+        <a href="anketa.html" class="enter-btn">ПЕРЕЙТИ ДО ЗАПОВНЕННЯ ЗАЯВИ</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ. ЧЕСТЬ ТА ЧИН.
+</footer>
+
+</body>
+</html>
