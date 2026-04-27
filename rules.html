@@ -6,18 +6,27 @@
     <title>Кодекс Націоналіста</title>
     <style>
         body { background-color: #05101c; color: #f0f4f8; font-family: "Courier New", Courier, monospace; margin: 0; padding: 20px; }
-        h1 { color: #ffd700; text-align: center; text-transform: uppercase; letter-spacing: 3px; margin-top: 60px; margin-bottom: 30px; }
         
+        /* Кнопка повернення */
         .floating-back {
             position: fixed; top: 15px; left: 15px; z-index: 1001; 
             background: #0a1e36; color: #ffd700; padding: 10px 15px; 
             border: 1px solid #ffd700; text-decoration: none; font-size: 11px; 
-            font-weight: bold; text-transform: uppercase;
+            font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
         }
 
-        .section-container { max-width: 900px; margin: 30px auto; }
-        .code-box { background: rgba(10, 30, 54, 0.8); border: 2px solid #1e3a5f; padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        h2 { color: #ffd700; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #ffd700; padding-bottom: 10px; margin-bottom: 25px; text-align: center; }
+        .section-container { max-width: 900px; margin: 60px auto; }
+        
+        .code-box { 
+            background: rgba(10, 30, 54, 0.8); border: 2px solid #1e3a5f; 
+            padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 { 
+            color: #ffd700; text-transform: uppercase; letter-spacing: 2px; 
+            border-bottom: 1px solid #ffd700; padding-bottom: 10px; margin-bottom: 25px;
+            font-size: 22px; text-align: center;
+        }
 
         /* Стиль для цитат */
         .quote-box {
@@ -38,19 +47,19 @@
             font-size: 13px;
         }
 
-        .list-item { margin-bottom: 15px; border-bottom: 1px solid rgba(30, 58, 95, 0.5); padding-bottom: 10px; line-height: 1.6; font-size: 17px; }
+        .list-item { 
+            margin-bottom: 15px; border-bottom: 1px solid rgba(30, 58, 95, 0.5); 
+            padding-bottom: 10px; line-height: 1.6; font-size: 17px;
+        }
+
         .num { color: #ffd700; font-weight: bold; margin-right: 10px; }
-        .scroll-box { height: 500px; overflow-y: auto; padding-right: 15px; }
-        .scroll-box::-webkit-scrollbar { width: 5px; }
-        .scroll-box::-webkit-scrollbar-thumb { background: #ffd700; }
+
         footer { text-align: center; color: #5a7b9c; padding: 40px; font-size: 12px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
 <a href="index.html" class="floating-back">← ГОЛОВНА</a>
-
-<h1>Ідеологічний Кодекс</h1>
 
 <div class="section-container">
     
@@ -68,6 +77,11 @@
         </div>
 
         <div class="quote-box">
+            "Держава не твориться в будучині, держава будується нині."
+            <span class="quote-author">— Олег Ольжич</span>
+        </div>
+
+        <div class="quote-box">
             "Нація — це не тільки ті, що живуть, але й ті, що вмерли, і ті, що ще не народилися."
             <span class="quote-author">— Микола Сціборський</span>
         </div>
@@ -82,16 +96,62 @@
         <h2>ДЕКАЛОГ ОУН</h2>
         <div class="list-item"><span class="num">I.</span> Здобудеш Українську Державу, або згинеш у боротьбі за Неї.</div>
         <div class="list-item"><span class="num">II.</span> Не дозволиш нікому плямити слави, ні честі Твоєї Нації.</div>
+        <div class="list-item"><span class="num">III.</span> Пам'ятай про великі дні наших Визвольних змагань.</div>
+        <div class="list-item"><span class="num">IV.</span> Будь гордий з того, що Ти є спадкоємцем боротьби за славу Володимирового Тризуба.</div>
+        <div class="list-item"><span class="num">V.</span> Пімстиш смерть Великих Лицарів.</div>
+        <div class="list-item"><span class="num">VI.</span> Про справу не говори з ким можна, а з ким треба.</div>
+        <div class="list-item"><span class="num">VII.</span> Не завагаєшся виконати найнебезпечнішого чину, якщо цього вимагатиме добро справи.</div>
+        <div class="list-item"><span class="num">VIII.</span> Ненавистю і безоглядною боротьбою прийматимеш ворогів Твоєї Нації.</div>
+        <div class="list-item"><span class="num">IX.</span> Ні просьби, ні грозьби, ні тортури, ані смерть не приневолять Тебе виявити секретів.</div>
         <div class="list-item"><span class="num">X.</span> Змагатимеш до поширення сили, слави, багатства і простору Української Держави.</div>
     </div>
 
     <div class="code-box">
         <h2>44 ПРАВИЛА ЖИТТЯ</h2>
-        <div class="scroll-box">
-            <div class="list-item"><span class="num">1.</span> Плекай духа волі і чину.</div>
-            <div class="list-item"><span class="num">9.</span> Повсюдно будь прикладом.</div>
-            <div class="list-item"><span class="num">10.</span> Плекай національну солідарність.</div>
-            </div>
+        <div class="list-item"><span class="num">1.</span> Плекай духа волі і чину.</div>
+        <div class="list-item"><span class="num">2.</span> Будь сильний і незламний.</div>
+        <div class="list-item"><span class="num">3.</span> Будь відважний і витривалий.</div>
+        <div class="list-item"><span class="num">4.</span> Гартуй своє тіло і душу.</div>
+        <div class="list-item"><span class="num">5.</span> Не знай страху ні перед ворогом, ні перед смертю.</div>
+        <div class="list-item"><span class="num">6.</span> Будь вірний ідеї до кінця.</div>
+        <div class="list-item"><span class="num">7.</span> Цінуй честь понад життя.</div>
+        <div class="list-item"><span class="num">8.</span> Будь лицарський у боротьбі.</div>
+        <div class="list-item"><span class="num">9.</span> Повсюдно будь прикладом.</div>
+        <div class="list-item"><span class="num">10.</span> Плекай національну солідарність.</div>
+        <div class="list-item"><span class="num">11.</span> Не допускай кривди свого побратима.</div>
+        <div class="list-item"><span class="num">12.</span> Будь справним і швидким у ділі.</div>
+        <div class="list-item"><span class="num">13.</span> Не марнуй часу на порожні слова.</div>
+        <div class="list-item"><span class="num">14.</span> Постійно навчайся і самовдосконалюйся.</div>
+        <div class="list-item"><span class="num">15.</span> Не падай духом у невдачах.</div>
+        <div class="list-item"><span class="num">16.</span> Шануй майно Нації як власну святиню.</div>
+        <div class="list-item"><span class="num">17.</span> Будь ощадний, але не скнарий.</div>
+        <div class="list-item"><span class="num">18.</span> Дбай про чистоту своєї мови.</div>
+        <div class="list-item"><span class="num">19.</span> Не цурайся жодної праці для Держави.</div>
+        <div class="list-item"><span class="num">20.</span> Завжди пам’ятай, що Ти — представник ОУН.</div>
+        <div class="list-item"><span class="num">21.</span> Не шукай вигоди там, де треба офіри.</div>
+        <div class="list-item"><span class="num">22.</span> Будь точний і акуратний.</div>
+        <div class="list-item"><span class="num">23.</span> Приймай відповідальність на себе.</div>
+        <div class="list-item"><span class="num">24.</span> Шануй традицію своїх предків.</div>
+        <div class="list-item"><span class="num">25.</span> Плекай фізичну силу та здоров’я.</div>
+        <div class="list-item"><span class="num">26.</span> Будь стриманий у почуттях та словах.</div>
+        <div class="list-item"><span class="num">27.</span> Не май жалю до зрадників.</div>
+        <div class="list-item"><span class="num">28.</span> Будь скромний у перемозі.</div>
+        <div class="list-item"><span class="num">29.</span> Допомагай слабким та потребуючим.</div>
+        <div class="list-item"><span class="num">30.</span> Не зраджуй таємниць Організації.</div>
+        <div class="list-item"><span class="num">31.</span> Будь вимогливий до себе так само, як до інших.</div>
+        <div class="list-item"><span class="num">32.</span> Шануй жінку як матір чи побратима.</div>
+        <div class="list-item"><span class="num">33.</span> Не піддавайся ворожій пропаганді.</div>
+        <div class="list-item"><span class="num">34.</span> Будь господарем свого слова.</div>
+        <div class="list-item"><span class="num">35.</span> Дій завжди згідно зі своєю совістю.</div>
+        <div class="list-item"><span class="num">36.</span> Плекай естетику у побуті та ділі.</div>
+        <div class="list-item"><span class="num">37.</span> Будь вірний присязі.</div>
+        <div class="list-item"><span class="num">38.</span> Шануй могили героїв.</div>
+        <div class="list-item"><span class="num">39.</span> Не бійся визнати свою помилку.</div>
+        <div class="list-item"><span class="num">40.</span> Плекай дух побратимства.</div>
+        <div class="list-item"><span class="num">41.</span> Будь рішучий у критичну хвилину.</div>
+        <div class="list-item"><span class="num">42.</span> Шануй свій час та час інших.</div>
+        <div class="list-item"><span class="num">43.</span> Будь твердий як кремінь.</div>
+        <div class="list-item"><span class="num">44.</span> Здобудь або згинь!</div>
     </div>
 
 </div>
