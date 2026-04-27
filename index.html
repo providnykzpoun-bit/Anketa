@@ -18,36 +18,50 @@
             overflow: hidden;
         }
 
-        .hero-section { text-align: center; border: 3px solid #ffd700; padding: 50px; background: rgba(10, 30, 54, 0.9); box-shadow: 0 0 50px rgba(0,0,0,0.8); }
+        .hero-section { 
+            text-align: center; 
+            border: 3px solid #ffd700; 
+            padding: 50px; 
+            background: rgba(10, 30, 54, 0.9); 
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            max-width: 500px;
+            width: 90%;
+        }
         
-        h1 { color: #ffd700; font-size: 35px; letter-spacing: 5px; margin-bottom: 10px; text-transform: uppercase; }
-        .subtitle { color: #ffd700; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px; }
+        h1 { color: #ffd700; font-size: 40px; letter-spacing: 5px; margin-bottom: 10px; text-transform: uppercase; }
+        .subtitle { color: #ffd700; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px; font-weight: bold; }
 
-        .main-nav { display: flex; flex-direction: column; gap: 20px; }
+        .main-nav { display: flex; flex-direction: column; gap: 15px; }
 
         .nav-btn { 
             background: #004a99; 
             color: #ffd700; 
-            padding: 15px 40px; 
+            padding: 15px 30px; 
             text-decoration: none; 
             font-weight: bold; 
-            font-size: 18px; 
+            font-size: 16px; 
             border: 2px solid #ffd700; 
-            transition: 0.4s; 
+            transition: 0.3s; 
             text-transform: uppercase;
             text-align: center;
+            letter-spacing: 1px;
         }
 
-        .nav-btn:hover { background: #ffd700; color: #05101c; transform: scale(1.05); }
+        .nav-btn:hover { 
+            background: #ffd700; 
+            color: #05101c; 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
 
-        footer { position: absolute; bottom: 20px; color: #5a7b9c; font-size: 10px; letter-spacing: 2px; }
+        footer { position: absolute; bottom: 20px; color: #5a7b9c; font-size: 10px; letter-spacing: 2px; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="hero-section">
         <h1>ОУН</h1>
-        <div class="subtitle">ОБ'ЄДНАННЯ. ПОРЯДОК. НАЦІЯ.</div>
+        <div class="subtitle">БОГ І УКРАЇНА!</div>
 
         <nav class="main-nav">
             <a href="rules.html" class="nav-btn">КОДЕКС НАЦІОНАЛІСТА</a>
@@ -55,10 +69,15 @@
             <a href="today.html" class="nav-btn">СЬОГОДЕННЯ ТА РОТА УВО</a>
             
             <a href="anketa.html" class="nav-btn">ВСТУП ДО ОРГАНІЗАЦІЇ</a>
+            
+            <a href="contacts.html" class="nav-btn">КОНТАКТИ</a>
         </nav>
     </div>
 
-    <footer>© 2026 ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ</footer>
+    <footer>
+        ЗДОБУДЕШ УКРАЇНСЬКУ ДЕРЖАВУ, АБО ЗГИНЕШ У БОРОТЬБІ ЗА НЕЇ!<br>
+        <span style="font-size: 9px; opacity: 0.6; margin-top: 10px; display: block;">© 2026 ОРГАНІЗАЦІЯ УКРАЇНСЬКИХ НАЦІОНАЛІСТІВ</span>
+    </footer>
 
 </body>
 </html>
